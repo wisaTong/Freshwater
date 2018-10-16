@@ -1,6 +1,6 @@
 import React from "react";
 
-class MessageList extends React.Component {
+export default class MessageList extends React.Component {
   render() {
     return (
       <div className="message-list">
@@ -9,5 +9,3 @@ class MessageList extends React.Component {
     );
   }
 }
-
-export default MessageList;

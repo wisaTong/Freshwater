@@ -1,6 +1,6 @@
 import React from "react";
 
-class NewRoomForm extends React.Component {
+export default class CreateRoom extends React.Component {
   render() {
     return (
       <div className="new-room-form">
@@ -11,5 +11,3 @@ class NewRoomForm extends React.Component {
     );
   }
 }
-
-export default NewRoomForm;
