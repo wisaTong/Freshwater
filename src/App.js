@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./styles/App.css";
 import MessageList from "./components/MessageList";
 import SendMessage from "./components/SendMessage";
 import RoomList from "./components/RoomList";
