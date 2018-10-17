@@ -4,7 +4,11 @@ export default class RoomList extends React.Component {
   render() {
     return (
       <div className="rooms-list">
-        <div className="help-text">RoomList</div>
+        <h3> YOUR ROOM </h3>
+        <ul>
+          <li> #PUBG </li>
+          <li> #DOTA </li>
+        </ul>
       </div>
     );
   }

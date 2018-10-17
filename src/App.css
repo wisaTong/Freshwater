@@ -1,3 +1,4 @@
+/*Declare global variable*/
 :root {
   --primary-color: #a3e7d6b6;
   --secondary-color: rgb(255, 255, 255);
@@ -7,15 +8,9 @@
 }
 
 body {
-  height: 100%;
   margin: auto;
   padding: auto;
-  font-weight: 300;
-  color: #000000;
-}
-
-#root {
-  height: 100%;
+  color: #5a5151;
 }
 
 .app {
@@ -24,15 +19,15 @@ body {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    "r m m m m m s"
-    "r m m m m m s"
-    "r m m m m m s"
-    "r m m m m m s"
-    "r m m m m m s"
-    "n f f f f f p";
+    " r m m m m m s "
+    " r m m m m m s "
+    " r m m m m m s "
+    " r m m m m m s "
+    " r m m m m m s "
+    " n f f f f f p ";
 }
 
-.new-room-form {
+.create-room {
   grid-area: n;
 }
 
@@ -44,7 +39,7 @@ body {
   grid-area: m;
 }
 
-.send-message-form {
+.send-message {
   grid-area: f;
 }
 
@@ -52,14 +47,14 @@ body {
   grid-area: s;
 }
 
+/*tentative*/
 .your-profile {
   grid-area: p;
 }
 
-/* REST OF CSS */
 .rooms-list {
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
   background-color: var(--primary-color);
   overflow: scroll;
   height: 100%;
@@ -76,58 +71,23 @@ body {
 }
 
 .rooms-list > h3 {
-  margin: 5px 0;
+  margin: 5px 5px;
   color: var(--secondary-color);
 }
 
-.rooms-list .room a {
-  color: var(--secondary-text-color);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.rooms-list .room.active a {
-  color: var(--secondary-color);
-}
-
-.new-room-form {
+.create-room {
   padding: 10px 20px;
   background: var(--secondary-color);
   color: var(--primary-text-color);
 }
 
-.new-room-form form {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.new-room-form input {
-  width: 135px;
-  background: var(--secondary-color);
-}
-
-.new-room-form button {
+.create-room button {
   background: var(--secondary-color);
   color: var(--primary-text-color);
   border: 0;
 }
 
-.new-room-form input::placeholder {
-  color: var(--primary-text-color);
-  font-weight: 200;
-}
-
-.new-room-form input:focus {
-  outline-width: 0;
-}
-
-.new-room-form input {
-  border: 0;
-}
-
-.new-room-form button {
+.create-room button {
   border: 0;
 }
 
@@ -158,21 +118,12 @@ body {
   background: var(--secondary-color);
 }
 
-.message-list .join-room {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-size: 34px;
-  font-weight: 300;
-}
-
-.send-message-form {
+.send-message {
   background: var(--send-message-form);
   display: flex;
 }
 
-.send-message-form input {
+.send-message input {
   width: 100%;
   padding: 15px 10px;
   margin: 0;
@@ -181,11 +132,7 @@ body {
   font-weight: 200;
 }
 
-.send-message-form input:focus {
-  outline-width: 0;
-}
-
-.send-message-form input::placeholder {
+.send-message input::placeholder {
   color: slategray;
   font-style: oblique;
 }
@@ -215,15 +162,5 @@ body {
 
 .friend-list > h3 {
   margin: 5px 0;
-  color: var(--secondary-color);
-}
-
-.friend-list .room a {
-  color: var(--secondary-text-color);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.friend-list .room.active a {
   color: var(--secondary-color);
 }

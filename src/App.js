@@ -6,13 +6,31 @@ import RoomList from "./components/RoomList";
 import CreateRoom from "./components/CreateRoom";
 import FriendList from "./components/FriendList";
 
+const TEMP = [
+  {
+    sender: "First",
+    text: "Hello World"
+  },
+  {
+    sender: "ZZZZZZ",
+    text: "asdsadads"
+  }
+];
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      messages: TEMP
+    };
+  }
+
   render() {
     return (
       <div className="app">
         <RoomList />
         <FriendList />
-        <MessageList />
+        <MessageList messages={this.state.messages} />
         <SendMessage />
         <CreateRoom />
       </div>
