@@ -38,6 +38,7 @@ body {
 .hero-copy h1 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 48px;
+  color: wheat;
   margin-bottom: 25px;
 }
 
@@ -46,5 +47,6 @@ p {
   margin-bottom: 48px;
   font-weight: 200;
   font-size: 15px;
+  color: wheat;
   line-height: 22.4px;
 }
