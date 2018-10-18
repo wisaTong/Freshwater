@@ -1,7 +1,14 @@
-import React from "react";
+export class Message {
+  constructor(sender, text) {
+    this.sender = sender;
+    this.text = text;
+  }
 
-export default class Message extends React.Component {
-  render() {
-    return <div className="message" />;
+  getSenderName() {
+    return this.sender;
+  }
+
+  getText() {
+    return this.text;
   }
 }
