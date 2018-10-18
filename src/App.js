@@ -5,6 +5,8 @@ import SendMessage from "./components/SendMessage";
 import RoomList from "./components/RoomList";
 import CreateRoom from "./components/CreateRoom";
 import FriendList from "./components/FriendList";
+import HomePage from "./HomePage";
+
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Route from "react-router-dom/Route";
 
@@ -35,12 +37,7 @@ class App extends Component {
             path="/"
             exact
             render={() => {
-              return (
-                <div>
-                  <h1> Home page </h1>
-                  <Link to="/public-room">PUBLIC ROOM</Link>
-                </div>
-              );
+              return <HomePage />;
             }}
           />
           <Route
