@@ -3,12 +3,4 @@ export class Message {
     this.sender = sender;
     this.text = text;
   }
-
-  getSenderName() {
-    return this.sender;
-  }
-
-  getText() {
-    return this.text;
-  }
 }
