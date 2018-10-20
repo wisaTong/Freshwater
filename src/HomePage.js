@@ -9,12 +9,8 @@ export default class HomePage extends React.Component {
         <div class="hero">
           <div className="hero-copy">
             <h1> "Manatee Chat" </h1>
-            <p>
-              {" "}
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-              odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-              turpis.
-            </p>
+            <p> Welcome to Manatee chat. A place where you can chat with anyone any where. </p>
+            <p>because Manatees are cool.</p>
             <Link to="/public-room">
               <p className="rectangle" />
             </Link>
