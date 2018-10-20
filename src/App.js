@@ -19,9 +19,7 @@ class App extends Component {
           <Route
             path="/public-room"
             exact
-            render={() => {
-              return <PublicRoom />;
-            }}
+            component={PublicRoom}
           />
         </div>
       </Router>
