@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./styles/App.css";
+
 import MessageList from "./components/MessageList";
 import SendMessage from "./components/SendMessage";
 import RoomList from "./components/RoomList";
@@ -11,16 +13,7 @@ import { Message } from "./components/Message";
 var firstSender = new Message("First", "HelloWorld");
 var secondSender = new Message("ZZZZZZ", "asdsadads");
 
-const TEMP = [
-  {
-    sender: firstSender.getSenderName(),
-    text: firstSender.getText()
-  },
-  {
-    sender: secondSender.getSenderName(),
-    text: secondSender.getText()
-  }
-];
+const TEMP = [firstSender, secondSender];
 
 export default class PublicRoom extends React.Component {
   constructor() {
