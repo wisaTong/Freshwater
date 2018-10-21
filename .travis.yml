@@ -19,7 +19,8 @@ before_install:
   - chmod a+x ./scripts/install.sh
   - chmod a+x ./scripts/deploy-container.sh
 install:
-  - "./scripts/install.sh"
+  - npm install create-react-app
+  - ./scripts/install.sh
 script:
   - npm test
   - npm run build
