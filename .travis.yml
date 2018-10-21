@@ -1,9 +1,34 @@
 language: node_js
 node_js:
-  - "stable"
+  - stable
 cache:
   directories:
   - node_modules
+before_install:
+  # Decrypt credentials
+  - openssl aes-256-cbc -K $encrypted_e45b403305bf_key -iv $encrypted_e45b403305bf_iv
+    -in fresh-service.json.enc -out fresh-service.json -d
+
+  # install gcloud-sdk
+  - gcloud version || true
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export
+    CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud version
+
+  # Authenticate with service account credentials
+  - tar -xzf credentials.tar.gz
+  - gcloud auth activate-service-account --key-file fresh-service.json
+
+  - chmod a+x ./scripts/install.sh
+  - chmod a+x ./scripts/deploy-container.sh
+install:
+  - "./scripts/install.sh"
 script:
   - npm test
   - npm run build
+after_success:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PWD
+  - docker-compose build
+  - docker push wisatong/freshwater
+  - ./scripts/deploy-container.sh
