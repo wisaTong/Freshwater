@@ -5,8 +5,8 @@ Manatee chat is lightweight web chat application for anyone who wants to communi
 Freshwater is a front-end side of Manatee chat project built with React.js
 
 build status:
-* master : &nbsp;[status]
-* develop : &nbsp;[status]
+* master : &nbsp;[![Build Status](https://travis-ci.com/wisaTong/Freshwater.svg?branch=master)](https://travis-ci.com/wisaTong/Freshwater)
+* develop : &nbsp;[![Build Status](https://travis-ci.com/wisaTong/Freshwater.svg?branch=develop)](https://travis-ci.com/wisaTong/Freshwater)
 
 ### Prerequisite
 * node.js 8.12.x
