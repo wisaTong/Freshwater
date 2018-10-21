@@ -9,12 +9,8 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_e45b403305bf_key -iv $encrypted_e45b403305bf_iv
     -in credentials.tar.gz.enc -out credentials.tar.gz -d
 
-  # install gcloud-sdk
+  # check gcloud-sdk
   - gcloud version || true
-  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export
-    CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
-  - source /home/travis/google-cloud-sdk/path.bash.inc
-  - gcloud version
 
   # Authenticate with service account credentials
   - tar -xzf credentials.tar.gz
