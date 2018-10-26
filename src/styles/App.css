@@ -1,8 +1,8 @@
 /*Declare global variable*/
 :root {
-  --primary-color: #a3e7d6b6;
+  --primary-color: #f88603b6;
   --secondary-color: rgb(255, 255, 255);
-  --primary-text-color: #3e5869;
+  --primary-text-color: #000000;
   --secondary-text-color: #b0c7d6;
   --send-message-form: #f5f5f5;
 }
@@ -19,20 +19,12 @@ body {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    " r m m m m m s "
-    " r m m m m m s "
-    " r m m m m m s "
-    " r m m m m m s "
-    " r m m m m m s "
-    " n f f f f f p ";
-}
-
-.create-room {
-  grid-area: n;
-}
-
-.rooms-list {
-  grid-area: r;
+    "b m m m m m n"
+    "b m m m m m n"
+    "b m m m m m n"
+    "b m m m m m n"
+    "b m m m m m n"
+    "b f f f f f n";
 }
 
 .message-list {
@@ -43,56 +35,18 @@ body {
   grid-area: f;
 }
 
-.friend-list {
-  grid-area: s;
-}
-
-/*tentative*/
-.your-profile {
-  grid-area: p;
-}
-
-.rooms-list {
-  box-sizing: border-box;
-  padding: 15px;
-  background-color: var(--primary-color);
-  overflow: scroll;
-  height: 100%;
-}
-
-.rooms-list > ul {
-  list-style-type: none;
-  padding: 0;
-  overflow: scoll;
-}
-
-.rooms-list li {
-  margin: 10px 0;
-}
-
-.rooms-list > h3 {
-  margin: 5px 5px;
-  color: var(--secondary-color);
-}
-
-.create-room {
-  padding: 10px 20px;
-  background: var(--secondary-color);
-  color: var(--primary-text-color);
-}
-
-.create-room button {
-  background: var(--secondary-color);
-  color: var(--primary-text-color);
-  border: 0;
-}
-
-.create-room button {
-  border: 0;
-}
-
 .message {
   margin: 15px 0;
+}
+
+.empty-area {
+  grid-area: b;
+  background-image: url(../images/sidebar_left.png);
+}
+
+.empty-area2 {
+  grid-area: n;
+  background-image: url(../images/sidebar_right.png);
 }
 
 .message .message-username {
@@ -109,18 +63,27 @@ body {
   border-radius: 8px;
 }
 
+.message .message-time {
+  font-size: 7px;
+  color: var(--primary-text-color);
+  opacity: 0.9;
+  padding-left: 5px;
+  display: inline;
+}
+
 .message-list {
   box-sizing: border-box;
   padding-left: 6px;
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  background: var(--secondary-color);
+  overflow: auto;
+  background-color: rgb(161, 142, 114);
 }
 
 .send-message {
-  background: var(--send-message-form);
   display: flex;
+  border: solid 4px #a5a5a5b6;
+  border-radius: 10px;
 }
 
 .send-message input {
@@ -128,7 +91,7 @@ body {
   padding: 15px 10px;
   margin: 0;
   border-style: none;
-  background: var(--send-message-form);
+  background: #f5eccd;
   font-weight: 200;
 }
 
@@ -137,30 +100,18 @@ body {
   font-style: oblique;
 }
 
-.help-text {
-  position: absolute;
-  top: 10px;
+.date {
+  opacity: 0.7;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 15%;
+  border-radius: 8px;
+  background: var(--primary-color);
 }
 
-.friend-list {
-  box-sizing: border-box;
-  padding: 10px;
-  background-color: var(--primary-color);
-  overflow: scroll;
-  height: 100%;
-}
-
-.friend-list > ul {
-  list-style-type: none;
-  padding: 0;
-  overflow: scoll;
-}
-
-.friend-list li {
-  margin: 10px 0;
-}
-
-.friend-list > h3 {
-  margin: 5px 0;
-  color: var(--secondary-color);
+.date .date-text {
+  text-align: center;
+  font-size: 9px;
+  color: beige;
 }
