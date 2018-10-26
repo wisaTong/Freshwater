@@ -1,4 +1,5 @@
 import React from "react";
+import MessageBubble from "./MessageBubble";
 
 export default class MessageList extends React.Component {
   render() {
@@ -11,8 +12,7 @@ export default class MessageList extends React.Component {
           return (
             <div key={index} className="message">
               <div className="message-username">{message.sender}</div>
-              <div className="message-text">{message.text}</div>
-              <div className="message-time">{message.time}</div>
+              <MessageBubble text={message.text} time={message.time} />
             </div>
           );
         })}
