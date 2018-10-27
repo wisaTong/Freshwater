@@ -49,6 +49,10 @@ export default class PublicRoom extends React.Component {
         <SendMessage />
         <div className="empty-area" />
         <div className="empty-area2" />
+        <div className="empty-area-bottom" />
+        <div className="title-area">
+          <div className="title-font"> Public </div>
+        </div>
       </div>
     );
   }
