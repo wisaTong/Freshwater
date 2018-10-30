@@ -3,6 +3,12 @@ import MessageBubble from "./MessageBubble";
 import MyMessageBubble from "./MyMessageBubble";
 
 export default class MessageList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "me"
+    };
+  }
   render() {
     return (
       <div className="message-list">
@@ -10,7 +16,7 @@ export default class MessageList extends React.Component {
           <div className="date-text"> Today </div>
         </div>
         {this.props.messages.map((message, index) => {
-          if (message.sender === "First") {
+          if (message.sender === this.state.username) {
             return (
               <div key={index} className="message">
                 <MyMessageBubble text={message.text} time={message.time} />
