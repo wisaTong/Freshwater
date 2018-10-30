@@ -1,29 +1,8 @@
-import React, { Component } from "react";
-import HomePage from "./HomePage";
-import PublicRoom from "./PublicRoom";
-import { BrowserRouter as Router } from "react-router-dom";
-import Route from "react-router-dom/Route";
+import React from "react";
 
-class App extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <Router>
-        <div>
-          <Route
-            path="/"
-            exact
-            render={() => {
-              return <HomePage />;
-            }}
-          />
-          <Route
-            path="/public-room"
-            exact
-            component={PublicRoom}
-          />
-        </div>
-      </Router>
-    );
+    return null;
   }
 }
 

@@ -1,5 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import HomePage from "./HomePage";
+import PublicRoom from "./PublicRoom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Route from "react-router-dom/Route";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Router>
+    <div>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/public-room" exact component={PublicRoom} />
+    </div>
+  </Router>,
+  document.getElementById("root")
+);
