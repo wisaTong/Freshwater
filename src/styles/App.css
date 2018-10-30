@@ -108,14 +108,15 @@ body {
   display: inline;
   padding: 4px 8px;
   border-radius: 8px;
-  margin-left: 10px;
+  margin-right: 1.25%;
 }
 
 .message .message-time-me {
   font-size: 7px;
   color: var(--primary-color);
   opacity: 0.9;
-  padding-left: 785px;
+  padding-left: 88%;
+  margin-right: 7px;
   display: inline;
 }
 
@@ -139,7 +140,7 @@ body {
   display: flex;
   margin: auto;
   width: 95%;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .send-message input {
@@ -150,7 +151,7 @@ body {
   background: #ffffff;
   font-weight: 200;
   border: solid #ffffff;
-  border-radius: 10px;
+  border-radius: 25px;
 }
 
 .send-message input::placeholder {
