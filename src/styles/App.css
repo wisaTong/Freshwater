@@ -14,30 +14,41 @@ body {
 }
 
 .app {
+  background-color: #5a5151;
   display: grid;
   height: 100%;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr) 0.2fr;
   grid-template-areas:
-    "b t t t t t n"
-    "b m m m m m n"
-    "b m m m m m n"
-    "b m m m m m n"
-    "b m m m m m n"
-    "b m m m m m n"
-    "b f f f f f n";
+    "b x x x x x n"
+    "b x x x x x n"
+    "b x x x x x n"
+    "b x x x x x n"
+    "b x x x x x n"
+    "b x x x x x n"
+    "b x x x x x n";
 }
 
-.message-list {
-  grid-area: m;
+.bigbox {
+  height: 100%;
+  grid-area: x;
+  border-radius: 20px;
+  background-image: linear-gradient(-45deg, orange, rgb(255, 238, 0));
 }
 
-.send-message {
-  grid-area: f;
+.message-slot {
+  width: 100%;
+  float: right;
 }
 
 .message {
   margin: 15px 0;
+}
+
+.message-me {
+  margin: 15px 0;
+  float: right;
+  margin-right: 1%;
 }
 
 .empty-area {
@@ -50,15 +61,9 @@ body {
   background-color: white;
 }
 
-.title-area {
-  grid-area: t;
-  background-color: rgb(255, 174, 0);
-  border-radius: 25px 25px 0px 0px;
-}
-
-.title-area .title-font {
+.title-font {
   padding-top: 20px;
-  padding-left: 30px;
+  padding-left: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   color: white;
@@ -92,16 +97,7 @@ body {
   display: inline-block;
 }
 
-/* .message .message-username-me {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  color: var(--primary-color);
-  opacity: 0.9;
-  margin-bottom: 6px;
-  margin-left: 860px;
-} */
-
-.message .message-text-me {
+.message-me .message-text-me {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   background: black;
@@ -113,7 +109,7 @@ body {
   max-width: 250px;
 }
 
-.message .message-time-me {
+.message-me .message-time-me {
   font-size: 7px;
   color: var(--primary-color);
   opacity: 0.9;
@@ -126,17 +122,10 @@ body {
   padding-left: 6px;
   padding-right: 6px;
   width: 100%;
-  height: 100%;
+  height: 80%;
   overflow: auto;
   overflow-x: hidden;
-  background-color: rgb(255, 174, 0);
-}
-
-.rectangle-box {
-  width: 500%;
-  height: 100%;
-  background-color: rgb(255, 174, 0);
-  border-radius: 0px 0px 25px 25px;
+  /* background-color: rgb(255, 174, 0); */
 }
 
 .send-message {
@@ -144,11 +133,12 @@ body {
   margin: auto;
   width: 95%;
   padding-top: 2%;
+  /* border-radius: 0px 0px 25px 25px; */
 }
 
 .send-message input {
   width: 100%;
-  padding: 15px 10px;
+  padding: 4pt 10pt;
   margin: 0;
   border-style: none;
   background: #ffffff;
