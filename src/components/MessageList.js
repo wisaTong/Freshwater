@@ -18,7 +18,7 @@ export default class MessageList extends React.Component {
         {this.props.messages.map((message, index) => {
           if (message.sender === this.state.username) {
             return (
-              <div key={index} className="message">
+              <div key={index} className="message-slot">
                 <MyMessageBubble text={message.text} time={message.time} />
               </div>
             );
