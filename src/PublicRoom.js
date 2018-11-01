@@ -41,13 +41,10 @@ export default class PublicRoom extends React.Component {
   render() {
     return (
       <div className="app">
-        <MessageList messages={this.state.messages} />
-        <SendMessage />
-        <div className="empty-area" />
-        <div className="empty-area2" />
-        <div className="empty-area-bottom" />
-        <div className="title-area">
+        <div className="bigbox">
           <div className="title-font"> Public </div>
+          <MessageList messages={this.state.messages} />
+          <SendMessage />
         </div>
       </div>
     );
