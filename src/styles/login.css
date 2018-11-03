@@ -44,8 +44,7 @@ h3 {
   margin-bottom: 30px;
 }
 
-.send-name,
-.container-google {
+.send-name {
   display: flex;
   width: 95%;
   height: 2%;
@@ -53,8 +52,44 @@ h3 {
   max-width: 250px;
 }
 
-.container-google {
-  background: white;
+img {
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  border: 0;
+}
+
+.container-google-text,
+.container-facebook-text {
+  font-style: normal;
+  font-family: var(--primary-font);
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.container-google-text {
+  color: grey;
+  margin-left: -25px;
+}
+
+.container-facebook-text {
+  color: white;
+  margin-left: -10px;
+}
+
+.container-google-color {
+  border-radius: 7px;
+  border-color: white;
+  background-color: white;
+}
+
+.container-facebook-color {
+  border-radius: 7px;
+  border-color: #034aa6;
+  background-color: #034aa6;
 }
 
 .send-name input {
@@ -77,6 +112,14 @@ h3 {
 
 p {
   color: grey;
-  margin: 30px 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
   font-family: var(--primary-font);
+}
+
+button {
+  width: 95%;
+  height: 5%;
+  max-width: 250px;
+  margin-bottom: 5px;
 }
