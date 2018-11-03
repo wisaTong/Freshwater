@@ -25,6 +25,7 @@ export default class LoginPage extends React.Component {
               Sign in with Google account{" "}
             </div>
           </button>
+          <div className="empty-space" />
           <button className="container-facebook-color">
             <img src={facebookImage} />
             <div className="container-facebook-text">
