@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles/login.css";
+import "../styles/login.css";
 
-var googleImage = require("./images/google_logo.svg");
-var facebookImage = require("./images/facebook-app-symbol.svg");
+import google_logo from "../images/google_logo.svg"
+import facebook_logo from "../images/facebook_logo.svg"
 
 export default class LoginPage extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export default class LoginPage extends React.Component {
           </div>
           <p> or </p>
           <button className="container-google-color">
-            <img src={googleImage} />
+            <img src={google_logo} />
             <div className="container-google-text">
               {" "}
               Sign in with Google account{" "}
@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
           </button>
           <div className="empty-space" />
           <button className="container-facebook-color">
-            <img src={facebookImage} />
+            <img src={facebook_logo} />
             <div className="container-facebook-text">
               {" "}
               Sign in with Facebook account{" "}

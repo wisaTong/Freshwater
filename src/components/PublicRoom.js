@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./styles/App.css";
+import "../styles/app.css";
 
-import MessageList from "./components/MessageList";
-import SendMessage from "./components/SendMessage";
+import MessageList from "./MessageList";
+import SendMessage from "./SendMessage";
 
-import { Message } from "./components/Message";
+import { Message } from "./Message";
 
 const TEMP = [
   new Message(
@@ -35,18 +35,17 @@ export default class PublicRoom extends React.Component {
   constructor() {
     super();
     this.state = {
-      messages: TEMP
+      name: "Dog"
+      , messages: TEMP
     };
   }
   render() {
     return (
-      <div className="app">
-        <div className="bigbox">
-          <div className="title-font"> Public </div>
+        <div className="chat-box">
+          <div className="title-font"> {this.state.name} </div>
           <MessageList messages={this.state.messages} />
           <SendMessage />
         </div>
-      </div>
     );
   }
 }

@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HomePage from "./HomePage";
-import PublicRoom from "./PublicRoom";
-import LoginPage from "./LoginPage";
-import { BrowserRouter as Router } from "react-router-dom";
+
 import Route from "react-router-dom/Route";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import HomePage from "./components/HomePage";
+import PublicRoom from "./components/PublicRoom";
+import LoginPage from "./components/LoginPage";
+
 
 const Routing = (
   <Router>
