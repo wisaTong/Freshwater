@@ -15,37 +15,28 @@ const TEMP = [
   ),
   new Message("me", "HelloWorld", "15:30"),
   new Message(
-    "ZZZZZZ",
+    "Mr.Lorem",
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ratione fugit. Atque commodi autem velit sit est dolores aut dignissimos, tenetur, impedit quaerat quo odio aliquam optio reiciendis, in id?",
     "15:30"
   ),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30"),
-  new Message("ZZZZZZ", "asdsadads", "15:30")
+  new Message("Classic man", "asdsadads", "15:30")
 ];
 
 export default class PublicRoom extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "Dog"
+      name: "Public"
       , messages: TEMP
     };
   }
   render() {
     return (
-        <div className="chat-box">
-          <div className="title-font"> {this.state.name} </div>
-          <MessageList messages={this.state.messages} />
-          <SendMessage />
-        </div>
+      <div className="chat-box">
+        <div className="title-font"> {this.state.name} </div>
+        <MessageList messages={this.state.messages} />
+        <SendMessage />
+      </div>
     );
   }
 }
