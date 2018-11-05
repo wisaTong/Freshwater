@@ -1,16 +1,20 @@
 /*Declare global variable*/
 :root {
+  --primary-font: 'Oxygen';
   --primary-color: #ffffff;
   --secondary-color: rgb(255, 255, 255);
   --primary-text-color: #000000;
   --secondary-text-color: #b0c7d6;
   --send-message-form: #f5f5f5;
+  --message-bubble: rgb(249, 249, 249);
+  --my-message-bubble: rgb(62, 62, 62);
 }
 
 body {
+  position: relative;
   margin: auto;
-  padding: auto;
-  color: #5a5151;
+  height: auto;
+  min-height: 100% !important;
 }
 
 .grid {
@@ -29,25 +33,69 @@ body {
 }
 
 .chat-box {
-  height: 100%;
-  grid-area: x;
+  height: 100vh;
+  padding: 20pt;
   border-radius: 20px;
-  background-image: linear-gradient(-45deg, orange, rgb(255, 238, 0));
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgb(255, 189, 67) 60%, rgb(250, 166, 95));
 }
 
 .message-slot {
   width: 100%;
-  float: right;
+  font-family: var(--primary-font);
 }
 
-.message {
-  margin: 15px 0;
+.my-message-slot {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-family: var(--primary-font);
 }
 
-.message-me {
-  margin: 15px 0;
-  float: right;
-  margin-right: 1%;
+.message-bubble {
+  font-size: 15px;
+  color: var(--primary-text-color);
+  background: var(--message-bubble);
+  display: inline-block;
+  padding: 8pt;
+  border-radius: 8px;
+  max-width: 250px;
+  display: inline-block;
+}
+
+.message-time {
+  font-size: 8pt;
+  font-weight: bold;
+  color: var(--primary-color);
+  opacity: 0.9;
+  padding-left: 8pt;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.my-message-time {
+  font-size: 15px;
+  color: var(--primary-color);
+  opacity: 0.9;
+  padding-right: 8pt;
+  bottom: 0;
+}
+
+.message-slot .message-sender {
+  font-family: var(--primary-font);
+  font-size: 15px;
+  color: var(--primary-color);
+  margin: 4pt 0pt;
+  opacity: 0.9;
+}
+
+.my-message-bubble {
+  font-size: 15px;
+  color: var(--secondary-color);
+  background: var(--my-message-bubble);
+  padding: 8pt;
+  border-radius: 8px;
+  max-width: 250px;
 }
 
 .empty-area {
@@ -61,84 +109,29 @@ body {
 }
 
 .title-font {
-  padding-top: 20px;
-  padding-left: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  height: 10%;
+  padding: 0pt 10pt;
+  font-family: var(--primary-font);
+  font-size: 75px;
   color: white;
-}
-
-.message .message-username {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  color: var(--primary-color);
-  opacity: 0.9;
-  margin-bottom: 6px;
-  margin-left: 20px;
-}
-.message .message-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  background: var(--primary-color);
-  color: var(--primary-text-color);
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 8px;
-  margin-left: 20px;
-  max-width: 250px;
-}
-
-.message .message-time {
-  font-size: 7px;
-  color: var(--primary-color);
-  opacity: 0.9;
-  padding-left: 5px;
-  display: inline-block;
-}
-
-.message-me .message-text-me {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  background: black;
-  color: white;
-  display: inline-block;
-  padding: 4px 8px;
-  margin-left: 20px;
-  border-radius: 8px;
-  max-width: 250px;
-}
-
-.message-me .message-time-me {
-  font-size: 7px;
-  color: var(--primary-color);
-  opacity: 0.9;
-  padding-left: 5px;
-  display: inline-block;
 }
 
 .message-list {
-  box-sizing: border-box;
-  padding-left: 6px;
-  padding-right: 6px;
   width: 100%;
-  height: 83%;
+  height: 87%;
   overflow: auto;
   overflow-x: hidden;
-  /* background-color: rgb(255, 174, 0); */
 }
 
 .send-message {
-  display: flex;
-  margin: auto;
-  width: 95%;
-  padding-top: 2%;
-  /* border-radius: 0px 0px 25px 25px; */
+  margin: 5pt;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .send-message input {
   width: 100%;
   padding: 4pt 10pt;
-  margin: 0;
   border-style: none;
   background: #ffffff;
   font-weight: 200;
