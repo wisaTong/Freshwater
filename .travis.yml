@@ -29,3 +29,5 @@ after_success:
   - docker-compose build
   - docker push wisatong/freshwater
   - ./scripts/deploy-container.sh
+after_failure:
+  - cat /home/travis/.npm/_logs/2018-11-08T15_17_22_995Z-debug.log
