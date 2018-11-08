@@ -19,7 +19,7 @@ export default class LoginPage extends React.Component {
           </div>
           <p> or </p>
           <button className="container-google-color">
-            <img src={google_logo} />
+            <img src={google_logo} alt={"google_logo"}/>
             <div className="container-google-text">
               {" "}
               Sign in with Google account{" "}
@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
           </button>
           <div className="empty-space" />
           <button className="container-facebook-color">
-            <img src={facebook_logo} />
+            <img src={facebook_logo} alt={"facebook_logo"}/>
             <div className="container-facebook-text">
               {" "}
               Sign in with Facebook account{" "}
