@@ -1,6 +1,7 @@
 import React from "react";
-import "./styles/main.css";
 import { Link } from "react-router-dom";
+
+import "../styles/main.css";
 
 export default class HomePage extends React.Component {
   render() {
@@ -9,9 +10,12 @@ export default class HomePage extends React.Component {
         <div class="hero">
           <div className="hero-copy">
             <h1> "Manatee Chat" </h1>
-            <p> Welcome to Manatee chat. A place where you can chat with anyone any where. </p>
+            <p>
+              Welcome to Manatee chat. A place where you can chat with anyone
+              any where.
+            </p>
             <p>because Manatees are cool.</p>
-            <Link to="/public-room">
+            <Link to="/login">
               <p className="rectangle" />
             </Link>
           </div>
