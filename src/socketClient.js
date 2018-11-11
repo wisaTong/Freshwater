@@ -17,4 +17,6 @@ export function connect(url) {
   ws.onmessage = (msg) => {
     console.log(`[info] receive message: ${msg.data}`);
   }
+  
+  return ws;
 }
