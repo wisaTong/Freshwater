@@ -58,6 +58,7 @@ body {
   border-radius: 8px;
   max-width: 250px;
   display: inline-block;
+  word-wrap: break-word;
 }
 
 .message-bubble {
