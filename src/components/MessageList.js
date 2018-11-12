@@ -5,6 +5,7 @@ import MyMessageBubble from "./MyMessageBubble";
 export default class MessageList extends React.Component {
   constructor() {
     super();
+    this.date = new Date().toLocaleDateString()
     this.state = {
       username: "me"
     };
@@ -13,7 +14,7 @@ export default class MessageList extends React.Component {
     return (
       <div className="message-list">
         <div className="date">
-          <div className="date-text"> Today </div>
+          <div className="date-text">  {this.date} </div>
         </div>
         {this.props.messages.map((message, index) => {
           if (message.sender === this.state.username) {
