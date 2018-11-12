@@ -20,7 +20,7 @@ const TEMP = [
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ratione fugit. Atque commodi autem velit sit est dolores aut dignissimos, tenetur, impedit quaerat quo odio aliquam optio reiciendis, in id?",
     "15:30"
   ),
-  new Message("Classic man", "asdsadads", "15:30")
+  new Message("Classic man", "asdsadads", "15.35")
 ];
 
 export default class PublicRoom extends React.Component {
@@ -30,8 +30,9 @@ export default class PublicRoom extends React.Component {
     let sock = ws.connect("ws://35.240.212.170/ws")
     
     sock.onmessage = (msg) => {
+      var time = new Date();
       console.log(`[info] receive message: ${msg.data}`);
-      TEMP.push(new Message("Book", msg.data, "10.10"));
+      TEMP.push(new Message("Book", msg.data, time.getHours()+":"+time.getMinutes()));
       this.setState({messages: TEMP});
     }
 
