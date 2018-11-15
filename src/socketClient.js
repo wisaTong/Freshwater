@@ -3,7 +3,6 @@ export function connect(url) {
 
   ws.onopen = () => {
     console.log('[info] successfully connected');
-    ws.send('Ping');
   }
 
   ws.onclose = () => {

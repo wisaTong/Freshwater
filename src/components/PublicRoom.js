@@ -30,9 +30,10 @@ export default class PublicRoom extends React.Component {
     let sock = ws.connect("ws://35.240.212.170/ws")
     
     sock.onmessage = (msg) => {
+      let some = JSON.parse(msg.data)
       var time = new Date();
       console.log(`[info] receive message: ${msg.data}`);
-      TEMP.push(new Message("Book", msg.data, time.getHours()+":"+time.getMinutes()));
+      TEMP.push(new Message(some.sender, some.message, time.getHours()+":"+time.getMinutes()));
       this.setState({messages: TEMP});
     }
 
