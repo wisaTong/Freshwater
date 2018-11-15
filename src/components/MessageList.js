@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import MessageBubble from "./MessageBubble";
 import MyMessageBubble from "./MyMessageBubble";
 
