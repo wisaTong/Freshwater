@@ -9,6 +9,12 @@ export default class MessageList extends React.Component {
       username: "me"
     };
   }
+
+  componentDidUpdate() {
+    const node = ReactDOM.findDOMNode(this);
+    node.scrollTop = node.scrollHeight;
+  }
+
   render() {
     return (
       <div className="message-list">
