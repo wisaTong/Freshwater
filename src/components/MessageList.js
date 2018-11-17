@@ -20,14 +20,14 @@ export default class MessageList extends React.Component {
           if (message.sender === this.state.username) {
             return (
               <div className="my-message-slot">
-                <MyMessageBubble text={message.text} time={message.time} />
+                <MyMessageBubble message={message.message} time={message.time} />
               </div>
             );
           } else {
             return (
               <div className="message-slot">
                 <div className="message-sender">{message.sender}</div>
-                <MessageBubble text={message.text} time={message.time} />
+                <MessageBubble message={message.message} time={message.time} />
               </div>
             );
           }

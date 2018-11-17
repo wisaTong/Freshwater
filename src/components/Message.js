@@ -1,7 +1,8 @@
 export class Message {
-  constructor(sender, text, time) {
+  constructor(sender, destination, text, time) {
     this.sender = sender;
-    this.text = text;
+    this.destination = destination;
+    this.message = text;
     this.time = time;
   }
 }
