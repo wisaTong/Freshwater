@@ -1,6 +1,7 @@
 import React from "react";
 
 export default class SendMessage extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { message: '' };
@@ -8,12 +9,12 @@ export default class SendMessage extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({message:e.target.value})
+  handleChange(event) {
+    this.setState({message:event.target.value})
   }
 
   handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
+    if(event.key === 'Enter' && this.state.message !== ''){
       this.props.sendMessage(this.state.message);
       this.setState({message: ''});
     }
