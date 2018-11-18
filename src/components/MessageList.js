@@ -5,7 +5,6 @@ import MyMessageBubble from "./MyMessageBubble";
 export default class MessageList extends React.Component {
   constructor() {
     super();
-    this.date = new Date().toLocaleDateString()
     this.state = {
       username: "me"
     };
