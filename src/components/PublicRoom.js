@@ -6,7 +6,7 @@ import MessageList from "./MessageList";
 import SendMessage from "./SendMessage";
 
 import { Message } from "./Message";
-import* as ws from "../socketClient"
+import * as ws from "../socketClient"
 
 const TEMP = [
   new Message(
@@ -43,7 +43,7 @@ export default class PublicRoom extends React.Component {
   }
 
   sendMessageToSocket(message) {
-    let msg = JSON.stringify(new Message("me","public",message,"9000"));
+    let msg = JSON.stringify(new Message("me", this.state.name, message, "9000"));
     sock.send(msg);
   }
 
