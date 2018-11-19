@@ -14,7 +14,8 @@ export default class SendMessage extends React.Component {
   }
 
   handleKeyPress = (event) => {
-    if(event.key === 'Enter' && this.state.message !== ''){
+    var text = this.state.message.replace(/\s/g,'');
+    if(event.key === 'Enter' && text !== ''){
       this.props.sendMessage(this.state.message);
       this.setState({message: ''});
     }
