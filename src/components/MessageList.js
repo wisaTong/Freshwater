@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import MessageBubble from "./MessageBubble";
 import MyMessageBubble from "./MyMessageBubble";
 
@@ -9,6 +10,12 @@ export default class MessageList extends React.Component {
       username: "me"
     };
   }
+
+  componentDidUpdate() {
+    const node = ReactDOM.findDOMNode(this);
+    node.scrollTop = node.scrollHeight;
+  }
+
   render() {
     return (
       <div className="message-list">
