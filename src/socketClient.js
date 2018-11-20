@@ -3,7 +3,6 @@ export function connect(url) {
 
   ws.onopen = () => {
     console.log('[info] successfully connected');
-    ws.send('Ping');
   }
 
   ws.onclose = () => {
@@ -11,10 +10,12 @@ export function connect(url) {
   }
 
   ws.onerror = (error) => {
-    console.log(`[error] ${error}`);
+    console.log(`[error] ${JSON.stringify(error)}`);
   }
 
   ws.onmessage = (msg) => {
     console.log(`[info] receive message: ${msg.data}`);
   }
+
+  return ws;
 }
