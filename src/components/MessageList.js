@@ -4,10 +4,10 @@ import MessageBubble from "./MessageBubble";
 import MyMessageBubble from "./MyMessageBubble";
 
 export default class MessageList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      username: "me"
+      username: this.props.username
     };
   }
 
