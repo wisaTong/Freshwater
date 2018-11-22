@@ -32,18 +32,20 @@ export default class PublicRoom extends React.Component {
       name: "Public",
       messages: TEMP
     };
+    
     sock.onmessage = (msg) => {
-      let some = JSON.parse(msg.data)
-      var time = new Date();
+      let some = JSON.parse(msg.data);
+      var time = new Date(some.time);
       console.log(`[info] receive message: ${msg.data}`);
-      TEMP.push(new Message(some.sender, some.destination ,some.message, time.getHours()+":"+time.getMinutes()));
+      TEMP.push(new Message(some.sender, some.destination ,some.message, time.getHours() + ":" + time.getMinutes()));
       this.setState({messages: TEMP});
     };
     this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
   }
 
   sendMessageToSocket(message) {
-    let msg = JSON.stringify(new Message("me", this.state.name, message, "9000"));
+    var date = Math.floor(Date.now());
+    let msg = JSON.stringify(new Message(this.props.username, this.state.name, message, date));
     sock.send(msg);
   }
 
@@ -51,7 +53,7 @@ export default class PublicRoom extends React.Component {
     return (
       <div className="chat-box">
         <div className="title-font"> {this.state.name} </div>
-        <MessageList messages={this.state.messages} />
+        <MessageList messages={this.state.messages} username={this.props.username}/>
         <SendMessage sendMessage={(message) => this.sendMessageToSocket(message)}/>
       </div>
     );
