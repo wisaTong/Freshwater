@@ -7,6 +7,7 @@ import "../styles/login.css";
 import google_logo from "../images/google_logo.svg";
 import facebook_logo from "../images/facebook_logo.svg";
 import PublicRoom from "./PublicRoom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -45,24 +46,25 @@ export default class LoginPage extends React.Component {
             />{" "}
           </div>
           <p> or </p>
-
-          <Link to="/public-room">
-            <button className="container-google-color">
-              <img src={google_logo} alt={"google_logo"} />
-              <div className="container-google-text">
-                {" "}
-                Sign in with Google account{" "}
-              </div>
-            </button>
-            <div className="empty-space" />
-            <button className="container-facebook-color">
-              <img src={facebook_logo} alt={"facebook_logo"} />
-              <div className="container-facebook-text">
-                {" "}
-                Sign in with Facebook account{" "}
-              </div>
-            </button>
-          </Link>
+          {/* <Router>
+            <Link to="/public-room">
+              <button className="container-google-color">
+                <img src={google_logo} alt={"google_logo"} />
+                <div className="container-google-text">
+                  {" "}
+                  Sign in with Google account{" "}
+                </div>
+              </button>
+              <div className="empty-space" />
+              <button className="container-facebook-color">
+                <img src={facebook_logo} alt={"facebook_logo"} />
+                <div className="container-facebook-text">
+                  {" "}
+                  Sign in with Facebook account{" "}
+                </div>
+              </button>
+            </Link>
+          </Router> */}
         </div>
       </div>
     );
