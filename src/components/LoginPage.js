@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/login.css";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 
 import google_logo from "../images/google_logo.svg";
 import facebook_logo from "../images/facebook_logo.svg";
@@ -40,28 +40,30 @@ export default class LoginPage extends React.Component {
             />{" "}
           </div>
           <p> or </p>
-          <Link
-            to={{
-              pathname: "/public-room",
-              state: { fromUserName: this.state.username }
-            }}
-          >
-            <button className="container-google-color">
-              <img src={google_logo} alt={"google_logo"} />
-              <div className="container-google-text">
-                {" "}
-                Sign in with Google account{" "}
-              </div>
-            </button>
-            <div className="empty-space" />
-            <button className="container-facebook-color">
-              <img src={facebook_logo} alt={"facebook_logo"} />
-              <div className="container-facebook-text">
-                {" "}
-                Sign in with Facebook account{" "}
-              </div>
-            </button>
-          </Link>
+          <BrowserRouter>
+            <Link
+              to={{
+                pathname: "/public-room",
+                state: { fromUserName: this.state.username }
+              }}
+            >
+              <button className="container-google-color">
+                <img src={google_logo} alt={"google_logo"} />
+                <div className="container-google-text">
+                  {" "}
+                  Sign in with Google account{" "}
+                </div>
+              </button>
+              <div className="empty-space" />
+              <button className="container-facebook-color">
+                <img src={facebook_logo} alt={"facebook_logo"} />
+                <div className="container-facebook-text">
+                  {" "}
+                  Sign in with Facebook account{" "}
+                </div>
+              </button>
+            </Link>
+          </BrowserRouter>
         </div>
       </div>
     );
