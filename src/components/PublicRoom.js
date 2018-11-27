@@ -13,12 +13,13 @@ let sock;
 export default class PublicRoom extends React.Component {
   constructor() {
     sock = ws.connect("ws://35.240.212.170/ws");
-
     super();
     this.state = {
+      user: "",
       name: "Public",
       messages: []
     };
+
     sock.onmessage = msg => {
       let some = JSON.parse(msg.data);
       var time = new Date(some.time);
@@ -36,10 +37,16 @@ export default class PublicRoom extends React.Component {
     this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
   }
 
+  componentWillMount() {
+    const { fromUserName } = this.props.location.state;
+    console.log(fromUserName);
+    this.setState({ user: fromUserName });
+  }
+
   sendMessageToSocket(message) {
     var date = Math.floor(Date.now());
     let msg = JSON.stringify(
-      new Message(this.props.username, this.state.name, message, date)
+      new Message(this.state.user, this.state.name, message, date)
     );
     sock.send(msg);
   }
@@ -50,7 +57,7 @@ export default class PublicRoom extends React.Component {
         <div className="title-font"> {this.state.name} </div>
         <MessageList
           messages={this.state.messages}
-          username={this.props.username}
+          username={this.state.user}
         />
         <SendMessage
           sendMessage={message => this.sendMessageToSocket(message)}
