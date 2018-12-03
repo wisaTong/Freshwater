@@ -16,7 +16,7 @@ export default class HomePage extends React.Component {
             </p>
             <p>because Manatees are cool.</p>
             <Link to="/login">
-              <p className="rectangle" />
+              <button className="rectangle"> to Login Page </button>
             </Link>
           </div>
         </div>
