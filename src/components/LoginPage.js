@@ -12,6 +12,11 @@ export default class LoginPage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
+
+  componentDidMount() {
+    document.getElementById("extra").style.visibility = "hidden";
+  }
+
   handleChange(event) {
     this.setState({ username: event.target.value });
   }
@@ -40,22 +45,24 @@ export default class LoginPage extends React.Component {
               onKeyPress={this.handleKeyPress}
             />{" "}
           </div>
-          <p> or </p>
-          <button className="container-google-color">
-            <img src={google_logo} alt={"google_logo"} />
-            <div className="container-google-text">
-              {" "}
-              Sign in with Google account{" "}
-            </div>
-          </button>
-          <div className="empty-space" />
-          <button className="container-facebook-color">
-            <img src={facebook_logo} alt={"facebook_logo"} />
-            <div className="container-facebook-text">
-              {" "}
-              Sign in with Facebook account{" "}
-            </div>
-          </button>
+          <div id="extra">
+            <p> or </p>
+            <button className="container-google-color">
+              <img src={google_logo} alt={"google_logo"} />
+              <div className="container-google-text">
+                {" "}
+                Sign in with Google account{" "}
+              </div>
+            </button>
+            <div className="empty-space" />
+            <button className="container-facebook-color">
+              <img src={facebook_logo} alt={"facebook_logo"} />
+              <div className="container-facebook-text">
+                {" "}
+                Sign in with Facebook account{" "}
+              </div>
+            </button>
+          </div>
           <BrowserRouter>
             <Link
               to={{
