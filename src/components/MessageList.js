@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MessageBubble from "./MessageBubble";
 import MyMessageBubble from "./MyMessageBubble";
 
@@ -12,14 +11,13 @@ export default class MessageList extends React.Component {
   }
 
   componentDidUpdate() {
-    const node = ReactDOM.findDOMNode(this);
-    node.scrollTop = node.scrollHeight;
+    if (this.msgList != null) this.msgList.scrollTop = this.msgList.scrollHeight;
   }
 
   render() {
     return (
       <div className="chat-area">
-        <div className="message-list">
+        <div className="message-list" ref={msgList => this.msgList=msgList}>
           {this.props.messages.map((message, index) => {
             if (message.sender === this.state.username) {
               return (
