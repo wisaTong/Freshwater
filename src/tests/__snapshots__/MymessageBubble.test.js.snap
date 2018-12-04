@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBubble render correctly 1`] = `
+<div
+  className="my-message-slot"
+>
+  <div
+    className="my-message-time"
+  />
+  <div
+    className="my-message-bubble"
+  />
+</div>
+`;
+
