@@ -4,40 +4,45 @@
   --primary-color: #ffffff;
   --secondary-color: rgb(255, 255, 255);
   --primary-text-color: #000000;
-  --secondary-text-color: #b0c7d6;
+  --secondary-text-color: #ffffff;
   --send-message-form: #f5f5f5;
   --message-bubble: rgb(249, 249, 249);
   --my-message-bubble: rgb(62, 62, 62);
+  --primary-background-color: rgb(58, 58, 58);
 }
 
 body {
+  overflow: hidden;
+  background-color: var(--primary-background-color);
   position: relative;
   margin: auto;
   height: auto;
   min-height: 100% !important;
 }
 
-.grid {
-  display: grid;
-  height: 100%;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr) 0.2fr;
-  grid-template-areas:
-    "b x x x x x n"
-    "b x x x x x n"
-    "b x x x x x n"
-    "b x x x x x n"
-    "b x x x x x n"
-    "b x x x x x n"
-    "b x x x x x n";
+.chat-rooms {
+  max-height: 100vh;
+  width: 20%;
+  display: inline-block;
 }
 
 .chat-box {
-  height: 100vh;
+  height: 95vh;
+  min-width: 700px;
+  width: 80%;
   padding: 20pt;
   border-radius: 20px;
   box-sizing: border-box;
-  background: linear-gradient(135deg, rgb(255, 189, 67) 60%, rgb(250, 166, 95));
+  background: linear-gradient(135deg, rgb(255, 189, 67) 40%, rgb(250, 166, 95));
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  margin: 25px auto;
+}
+
+.chat-area {
+  width: 100%;
+  height: 86%;
+  display: inline-flex;
+  padding-bottom: 10px;
 }
 
 .message-slot,
@@ -71,6 +76,7 @@ body {
 .my-message-bubble {
   color: var(--secondary-color);
   background: var(--my-message-bubble);
+  margin-right: 15px;
 }
 
 .message-time,
@@ -120,12 +126,12 @@ body {
 
 .message-list {
   width: 100%;
-  height: 87%;
-  overflow-y: scroll;
+  max-height: 100%;
+  margin-top: auto;
+  overflow-y: overlay;
 }
 
 .message-list::-webkit-scrollbar-track {
-  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   border-radius: 10px;
   background-color: transparent;
 }
@@ -137,12 +143,11 @@ body {
 
 .message-list::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   background-color: rgba(249, 249, 249, 0.5);
 }
 
 .send-message {
-  margin: 5pt;
+  margin: 5pt auto;
   width: 100%;
   box-sizing: border-box;
 }
@@ -160,6 +165,10 @@ body {
 .send-message input::placeholder {
   color: slategray;
   font-style: oblique;
+}
+
+.send-message input:focus {
+  outline: none !important;
 }
 
 .date {
