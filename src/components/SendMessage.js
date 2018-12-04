@@ -9,7 +9,7 @@ export default class SendMessage extends React.Component {
   }
 
   componentDidMount() {
-    this.sendMessageInput.focus();
+    if (this.sendMessageInput != null) this.sendMessageInput.focus();
   }
 
   handleChange(event) {
