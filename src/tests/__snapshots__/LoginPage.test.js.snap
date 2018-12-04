@@ -2,27 +2,30 @@
 
 exports[`LoginPage renders correctly 1`] = `
 <div
-  className="container"
+  className="top-level"
 >
   <div
-    className="leftpane"
+    className="column"
   />
   <div
-    className="middlepane"
+    className="column"
   />
   <div
-    className="rightpane"
+    className="column "
   >
-    <h1>
+    <p
+      className="manatee"
+    >
       Manatee
-    </h1>
-    <h3>
+    </p>
+    <p
+      className="desc"
+    >
       A simple chat app
-    </h3>
+    </p>
     <div
       className="send-name"
     >
-       
       <input
         onChange={[Function]}
         onKeyPress={[Function]}
@@ -30,62 +33,7 @@ exports[`LoginPage renders correctly 1`] = `
         type="text"
         value=""
       />
-       
     </div>
-    <div
-      id="extra"
-    >
-      <p>
-         or 
-      </p>
-      <button
-        className="container-google-color"
-      >
-        <img
-          alt="google_logo"
-          src="google_logo.svg"
-        />
-        <div
-          className="container-google-text"
-        >
-           
-          Sign in with Google account
-           
-        </div>
-      </button>
-      <div
-        className="empty-space"
-      />
-      <button
-        className="container-facebook-color"
-      >
-        <img
-          alt="facebook_logo"
-          src="facebook_logo.svg"
-        />
-        <div
-          className="container-facebook-text"
-        >
-           
-          Sign in with Facebook account
-           
-        </div>
-      </button>
-    </div>
-    <BrowserRouter>
-      <Link
-        id="submit"
-        replace={false}
-        to={
-          Object {
-            "pathname": "/public-room",
-            "state": Object {
-              "fromUserName": "",
-            },
-          }
-        }
-      />
-    </BrowserRouter>
   </div>
 </div>
 `;
