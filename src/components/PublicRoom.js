@@ -12,11 +12,11 @@ let sock;
 
 export default class PublicRoom extends React.Component {
   constructor() {
-    sock = ws.connect("ws://35.240.212.170/ws");
+    sock = ws.connect("ws://35.240.212.170/ws/lounge");
     super();
     this.state = {
       user: "",
-      name: "Public",
+      name: "Lounge",
       messages: []
     };
 
@@ -34,13 +34,14 @@ export default class PublicRoom extends React.Component {
       );
       this.setState({ messages: this.state.messages });
     };
+    
     this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
   }
 
   componentWillMount() {
-    const { fromUserName } = this.props.location.state;
-    console.log(fromUserName);
-    this.setState({ user: fromUserName });
+    const { username } = this.props.location.state;
+    console.log(username);
+    this.setState({ user: username });
   }
 
   sendMessageToSocket(message) {

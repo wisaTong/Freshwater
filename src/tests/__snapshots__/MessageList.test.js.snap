@@ -2,31 +2,25 @@
 
 exports[`SendMessage renders correctly 1`] = `
 <div
-  className="message-list"
+  className="chat-area"
 >
   <div
-    className="date"
+    className="message-list"
   >
     <div
-      className="date-text"
+      className="message-slot"
+      key="0"
     >
-       
-       
+      <div
+        className="message-sender"
+      >
+        test
+      </div>
+      <MessageBubble
+        message="Hello"
+        time="15:30"
+      />
     </div>
-  </div>
-  <div
-    className="message-slot"
-    key="0"
-  >
-    <div
-      className="message-sender"
-    >
-      test
-    </div>
-    <MessageBubble
-      message="Hello"
-      time="15:30"
-    />
   </div>
 </div>
 `;

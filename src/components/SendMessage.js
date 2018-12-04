@@ -8,6 +8,10 @@ export default class SendMessage extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+  componentDidMount() {
+    if (this.sendMessageInput != null) this.sendMessageInput.focus();
+  }
+
   handleChange(event) {
     this.setState({ message: event.target.value });
   }
@@ -24,6 +28,7 @@ export default class SendMessage extends React.Component {
     return (
       <div className="send-message">
         <input
+          ref={input => this.sendMessageInput = input}
           placeholder="Write your message here"
           value={this.state.message}
           type="message"
