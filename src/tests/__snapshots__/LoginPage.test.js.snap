@@ -32,42 +32,46 @@ exports[`LoginPage renders correctly 1`] = `
       />
        
     </div>
-    <p>
-       or 
-    </p>
-    <button
-      className="container-google-color"
-    >
-      <img
-        alt="google_logo"
-        src="google_logo.svg"
-      />
-      <div
-        className="container-google-text"
-      >
-         
-        Sign in with Google account
-         
-      </div>
-    </button>
     <div
-      className="empty-space"
-    />
-    <button
-      className="container-facebook-color"
+      id="extra"
     >
-      <img
-        alt="facebook_logo"
-        src="facebook_logo.svg"
-      />
-      <div
-        className="container-facebook-text"
+      <p>
+         or 
+      </p>
+      <button
+        className="container-google-color"
       >
-         
-        Sign in with Facebook account
-         
-      </div>
-    </button>
+        <img
+          alt="google_logo"
+          src="google_logo.svg"
+        />
+        <div
+          className="container-google-text"
+        >
+           
+          Sign in with Google account
+           
+        </div>
+      </button>
+      <div
+        className="empty-space"
+      />
+      <button
+        className="container-facebook-color"
+      >
+        <img
+          alt="facebook_logo"
+          src="facebook_logo.svg"
+        />
+        <div
+          className="container-facebook-text"
+        >
+           
+          Sign in with Facebook account
+           
+        </div>
+      </button>
+    </div>
     <BrowserRouter>
       <Link
         id="submit"
