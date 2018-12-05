@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: wisatong/freshwater:0.7.3-SNAPSHOT
+    image: wisatong/freshwater:0.7.4-SNAPSHOT
     build: .
     ports:
       - "80:5000"

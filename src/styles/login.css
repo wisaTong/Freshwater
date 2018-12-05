@@ -26,12 +26,14 @@ p.manatee {
   font-weight: 500;
   margin-top: 30%;
   margin-bottom: 0;
+  text-align: left;
 }
 
 p.desc {
   font-size: 30px;
   font-weight: 500;
   margin-top: 0;
+  text-align: left;
 }
 
 .send-name {
