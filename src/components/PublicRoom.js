@@ -78,7 +78,7 @@ export default class PublicRoom extends React.Component {
     if (this.state.redirect) {
       return <Redirect push to={{
         pathname: `/dummy`,
-        state: { username: this.state.username, next: this.state.next }
+        state: { username: this.state.user, next: this.state.next }
       }} />
     }
 
@@ -114,9 +114,6 @@ export class Dummy extends React.Component {
   componentWillMount() {
     const { username } = this.props.location.state;
     const { next } = this.props.location.state;
-    
-    console.log(next);
-    
 
     this.setState({
       next: next,
@@ -125,8 +122,6 @@ export class Dummy extends React.Component {
   }
 
   render() {
-    console.log('redirecting');
-    
     return (
       <Redirect push to={{
         pathname: `/${this.state.next}`,
