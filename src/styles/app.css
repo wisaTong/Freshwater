@@ -27,6 +27,7 @@ body {
 }
 
 .chat-box {
+  position: relative;
   height: 95vh;
   min-width: 700px;
   width: 80%;
@@ -39,8 +40,9 @@ body {
 }
 
 .chat-area {
+  margin-top: 20pt;
   width: 100%;
-  height: 86%;
+  height: 80%;
   display: inline-flex;
   padding-bottom: 10px;
 }
@@ -147,9 +149,12 @@ body {
 }
 
 .send-message {
-  margin: 5pt auto;
-  width: 100%;
-  box-sizing: border-box;
+  position: absolute;
+  margin: 0 auto;
+  width: 92%;
+  left: 0;
+  right: 0;
+  bottom: 20pt;
 }
 
 .send-message input {
