@@ -13,7 +13,7 @@ const Routing = (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact component={LoginPage} />
-      <Route path="/public-room" exact component={PublicRoom} />
+      <Route path="/:chatName" exact component={PublicRoom} />
     </Switch>
   </BrowserRouter>
 );
