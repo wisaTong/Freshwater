@@ -107,10 +107,3 @@ img {
 .send-name input:focus {
   outline: none !important;
 }
-
-button {
-  width: 95%;
-  height: 5%;
-  max-width: 250px;
-  margin-bottom: 5px;
-}

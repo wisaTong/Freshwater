@@ -1,12 +1,15 @@
 import React from "react";
-
-import "../styles/app.css";
+import { Redirect } from "react-router-dom";
 
 import MessageList from "./MessageList";
 import SendMessage from "./SendMessage";
 
-import { Message } from "./Message";
+import Message from "./Message";
+import ChatList from "./ChatList";
+
 import * as ws from "../socketClient";
+import "../styles/app.css";
+
 
 let sock;
 
@@ -14,10 +17,13 @@ export default class PublicRoom extends React.Component {
   constructor() {
     super();
     this.state = {
+      redirect: false,
+      next: "",
       user: "",
       chatName: "",
       messages: []
     };
+    this.redirection = this.redirection.bind(this);
   }
 
   componentDidMount() {
@@ -63,18 +69,70 @@ export default class PublicRoom extends React.Component {
     sock.send(msg);
   }
 
+  redirection(nextPage) {
+    this.setState({ next: nextPage, redirect: true })
+  }
+
   render() {
+    
+    if (this.state.redirect) {
+      return <Redirect push to={{
+        pathname: `/dummy`,
+        state: { username: this.state.username, next: this.state.next }
+      }} />
+    }
+
     return (
-      <div className="chat-box">
-        <div className="title-font"> {this.state.chatName} </div>
-        <MessageList
-          messages={this.state.messages}
-          username={this.state.user}
+      <div>
+        <ChatList
+          redirection={this.redirection}
         />
-        <SendMessage
-          sendMessage={message => this.sendMessageToSocket(message)}
-        />
+        <div className="chat-box">
+          <div className="title-font"> {this.state.chatName} </div>
+          <MessageList
+            messages={this.state.messages}
+            username={this.state.user}
+          />
+          <SendMessage
+            sendMessage={message => this.sendMessageToSocket(message)}
+          />
+        </div>
       </div>
     );
   }
+}
+
+export class Dummy extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      next: "",
+      username: ""
+    }
+  }
+
+  componentWillMount() {
+    const { username } = this.props.location.state;
+    const { next } = this.props.location.state;
+    
+    console.log(next);
+    
+
+    this.setState({
+      next: next,
+      username: username
+    })
+  }
+
+  render() {
+    console.log('redirecting');
+    
+    return (
+      <Redirect push to={{
+        pathname: `/${this.state.next}`,
+        state: { username: this.state.username, redirect: false }
+      }} />
+    );
+  }
+
 }
