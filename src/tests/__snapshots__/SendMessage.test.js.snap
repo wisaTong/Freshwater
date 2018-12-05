@@ -5,6 +5,7 @@ exports[`SendMessage renders correctly 1`] = `
   className="send-message"
 >
   <input
+    maxLength="255"
     onChange={[Function]}
     onKeyPress={[Function]}
     placeholder="Write your message here"
