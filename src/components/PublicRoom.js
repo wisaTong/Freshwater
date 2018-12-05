@@ -12,17 +12,33 @@ let sock;
 
 export default class PublicRoom extends React.Component {
   constructor() {
-    sock = ws.connect("ws://35.240.212.170/ws/lounge");
     super();
     this.state = {
       user: "",
-      name: "Lounge",
+      chatName: "",
       messages: []
     };
+  }
+
+  componentDidMount() {
+    this.socketSetup();
+  }
+
+  componentWillMount() {
+    const { username } = this.props.location.state;
+    this.setState({
+      user: username,
+      chatName: this.props.location.pathname.substring(1)
+    });
+  }
+
+  socketSetup() {
+    sock = ws.connect(`ws://35.240.212.170/ws/${this.props.location.pathname.substring(1)}`);
 
     sock.onmessage = msg => {
       let some = JSON.parse(msg.data);
       var time = new Date(some.time);
+
       console.log(`[info] receive message: ${msg.data}`);
       this.state.messages.push(
         new Message(
@@ -32,22 +48,17 @@ export default class PublicRoom extends React.Component {
           time.getHours() + ":" + time.getMinutes()
         )
       );
+
       this.setState({ messages: this.state.messages });
     };
-    
-    this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
-  }
 
-  componentWillMount() {
-    const { username } = this.props.location.state;
-    console.log(username);
-    this.setState({ user: username });
+    this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
   }
 
   sendMessageToSocket(message) {
     var date = Math.floor(Date.now());
     let msg = JSON.stringify(
-      new Message(this.state.user, this.state.name, message, date)
+      new Message(this.state.user, this.state.chatName, message, date)
     );
     sock.send(msg);
   }
@@ -55,7 +66,7 @@ export default class PublicRoom extends React.Component {
   render() {
     return (
       <div className="chat-box">
-        <div className="title-font"> {this.state.name} </div>
+        <div className="title-font"> {this.state.chatName} </div>
         <MessageList
           messages={this.state.messages}
           username={this.state.user}
