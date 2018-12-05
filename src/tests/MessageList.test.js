@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import MessageList from "../components/MessageList";
-import { Message } from "../components/Message";
+import Message from "../components/Message";
 import MyMessageBubble from "../components/MyMessageBubble";
 
 const TEMP = [
