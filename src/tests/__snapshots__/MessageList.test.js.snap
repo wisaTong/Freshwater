@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SendMessage renders correctly 1`] = `
+<div
+  className="chat-area"
+>
+  <div
+    className="message-list"
+  >
+    <div
+      className="message-slot"
+      key="0"
+    >
+      <div
+        className="message-sender"
+      >
+        test
+      </div>
+      <MessageBubble
+        message="Hello"
+        time="15:30"
+      />
+    </div>
+  </div>
+</div>
+`;

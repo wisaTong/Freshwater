@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SendMessage renders correctly 1`] = `
+<div
+  className="send-message"
+>
+  <input
+    maxLength="255"
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="Write your message here"
+    type="message"
+    value=""
+  />
+</div>
+`;

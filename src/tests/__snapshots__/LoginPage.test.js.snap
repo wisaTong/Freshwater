@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage renders correctly 1`] = `
+<div
+  className="top-level"
+>
+  <div
+    className="column"
+  />
+  <div
+    className="column"
+  />
+  <div
+    className="column "
+  >
+    <p
+      className="manatee"
+    >
+      Manatee
+    </p>
+    <p
+      className="desc"
+    >
+      A simple chat app
+    </p>
+    <div
+      className="send-name"
+    >
+      <input
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Enter your name"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -7,7 +7,7 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <div className="container">
-        <div class="hero">
+        <div className="hero">
           <div className="hero-copy">
             <h1> "Manatee Chat" </h1>
             <p>
@@ -16,7 +16,7 @@ export default class HomePage extends React.Component {
             </p>
             <p>because Manatees are cool.</p>
             <Link to="/login">
-              <p className="rectangle" />
+              <button className="rectangle"> to Login Page </button>
             </Link>
           </div>
         </div>

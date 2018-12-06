@@ -1,0 +1,401 @@
+
+<!-- saved from url=(0027)http://localhost:3000/login -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="./login_files/main.css">
+  <link rel="stylesheet" type="text/css" href="./login_files/css">
+
+<style type="text/css">/*Declare global variable*/
+:root {
+  --primary-font: "Oxygen";
+  --primary-color: #ffffff;
+  --secondary-color: rgb(255, 255, 255);
+  --primary-text-color: #000000;
+  --secondary-text-color: #ffffff;
+  --send-message-form: #f5f5f5;
+  --message-bubble: rgb(249, 249, 249);
+  --my-message-bubble: rgb(62, 62, 62);
+  --primary-background-color: rgb(58, 58, 58);
+}
+
+body {
+  overflow: hidden;
+  background-color: rgb(58, 58, 58);
+  background-color: var(--primary-background-color);
+  position: relative;
+  margin: auto;
+  height: auto;
+  min-height: 100% !important;
+  text-align: center;
+}
+
+.chat-box {
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  height: 95vh;
+  min-width: 700px;
+  width: 80%;
+  padding: 20pt 30pt;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgb(255, 189, 67) 40%, rgb(250, 166, 95));
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-area {
+  margin-top: 20pt;
+  width: 100%;
+  height: 80%;
+  display: inline-flex;
+  padding-bottom: 10px;
+}
+
+.message-slot,
+.my-message-slot {
+  position: relative;
+  width: 100%;
+  font-family: "Oxygen";
+  font-family: var(--primary-font);
+  text-align: left;
+}
+
+.my-message-slot {
+  margin: 3pt 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-bubble,
+.my-message-bubble {
+  font-size: 15px;
+  padding: 8pt;
+  border-radius: 8px;
+  max-width: 250px;
+  display: inline-block;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.message-bubble {
+  color: #000000;
+  color: var(--primary-text-color);
+  background: rgb(249, 249, 249);
+  background: var(--message-bubble);
+}
+
+.my-message-bubble {
+  color: rgb(255, 255, 255);
+  color: var(--secondary-color);
+  background: rgb(62, 62, 62);
+  background: var(--my-message-bubble);
+  margin-right: 15px;
+}
+
+.message-time,
+.my-message-time {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #ffffff;
+  color: var(--primary-color);
+  opacity: 0.9;
+}
+
+.message-time {
+  display: inline-block;
+  vertical-align: bottom;
+  padding-left: 8pt;
+}
+
+.my-message-time {
+  padding-right: 8pt;
+  bottom: 0;
+}
+
+.message-slot .message-sender {
+  font-family: "Oxygen";
+  font-family: var(--primary-font);
+  font-size: 15px;
+  color: #ffffff;
+  color: var(--primary-color);
+  margin: 4pt 0pt;
+  opacity: 0.9;
+}
+
+.empty-area {
+  grid-area: b;
+  background-color: white;
+}
+
+.empty-area2 {
+  grid-area: n;
+  background-color: white;
+}
+
+.title-font {
+  height: 10%;
+  padding: 0pt 10pt;
+  font-family: "Oxygen";
+  font-family: var(--primary-font);
+  font-size: 75px;
+  color: white;
+  text-align: left;
+}
+
+.message-list {
+  width: 100%;
+  max-height: 100%;
+  margin-top: auto;
+  overflow-y: overlay;
+}
+
+.message-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.message-list::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(249, 249, 249, 0.5);
+}
+
+.send-message {
+  position: absolute;
+  margin: 0 auto;
+  width: 92%;
+  left: 0;
+  right: 0;
+  bottom: 20pt;
+}
+
+.send-message input {
+  width: 100%;
+  padding: 4pt 10pt;
+  border-style: none;
+  background: #ffffff;
+  font-weight: 200;
+  border: solid #ffffff;
+  border-radius: 25px;
+}
+
+.send-message input::-webkit-input-placeholder {
+  color: slategray;
+  font-style: oblique;
+}
+
+.send-message input::-ms-input-placeholder {
+  color: slategray;
+  font-style: oblique;
+}
+
+.send-message input::placeholder {
+  color: slategray;
+  font-style: oblique;
+}
+
+.send-message input:focus {
+  outline: none !important;
+}
+
+.date {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 10%;
+  border-radius: 8px;
+  background: rgba(248, 248, 248, 0.39);
+}
+
+.date .date-text {
+  text-align: center;
+  font-size: 9px;
+  color: beige;
+  position: relative;
+}
+</style><style type="text/css">.chat-list {
+  display: inline-block;
+  width: 15%;
+  border-radius: 20px;
+  vertical-align: top;
+  background: linear-gradient(100deg, rgb(255, 67, 114) 10%, rgb(250, 166, 95));  height: 95vh;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-rooms {
+  margin: 50px auto 0 auto;
+  width: 80%;
+  font-family: var(--primary-font);
+  font-size: 42px;
+  color: white;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px auto;
+  padding: 0;
+  width: 90%;
+}
+
+button.chat-button {
+  text-align: left;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: var(--primary-font);
+  font-size: 35px;
+  color: white;
+  background: transparent;
+  border: none;
+  width: 82%;
+  outline: none;
+  margin: 5pt 0;
+}
+
+button:hover.chat-button {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+button:active.chat-button {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+</style><style type="text/css">:root {
+  --primary-font: "Quicksand";
+}
+
+.top-level {
+  height: 100%;
+  background: url(/static/media/dock.6062c1c2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.column {
+  width: calc(100% / 3);
+  display: inline-block;
+}
+
+p {
+  font-size: 20px;
+  margin: 0;
+  font-family: "Quicksand";
+  font-family: var(--primary-font);
+  color: var(--secondary-text-color);
+}
+
+p.manatee {
+  font-size: 90px;
+  font-weight: 500;
+  margin-top: 30%;
+  margin-bottom: 0;
+}
+
+p.desc {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.send-name {
+  display: flex;
+  width: 95%;
+  height: 2%;
+  padding-top: 2%;
+  max-width: 250px;
+}
+
+img {
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  border: 0;
+}
+
+.container-google-text,
+.container-facebook-text {
+  font-style: normal;
+  font-family: "Quicksand";
+  font-family: var(--primary-font);
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.container-google-text {
+  color: grey;
+  margin-left: -25px;
+}
+
+.container-facebook-text {
+  color: white;
+  margin-left: -10px;
+}
+
+.container-google-color {
+  border-radius: 7px;
+  border-color: white;
+  background-color: white;
+}
+
+.container-facebook-color {
+  border-radius: 7px;
+  border-color: #034aa6;
+  background-color: #034aa6;
+}
+
+.send-name input {
+  width: 100%;
+  padding: 15px 10px;
+  margin-top: 20px;
+
+  border-style: none;
+  background: #ffffff;
+  
+  font-weight: 200;
+  color: grey;
+  
+  border: solid #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.send-name input::-webkit-input-placeholder {
+  color: grey;
+  font-style: normal;
+  font-family: "Quicksand";
+  font-family: var(--primary-font);
+}
+
+.send-name input::-ms-input-placeholder {
+  color: grey;
+  font-style: normal;
+  font-family: "Quicksand";
+  font-family: var(--primary-font);
+}
+
+.send-name input::placeholder {
+  color: grey;
+  font-style: normal;
+  font-family: "Quicksand";
+  font-family: var(--primary-font);
+}
+
+.send-name input:focus {
+  outline: none !important;
+}
+</style></head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/jsx" src="./login_files/index.pack.js"></script>
+<script src="./login_files/bundle.js"></script><script src="./login_files/0.chunk.js"></script><script src="./login_files/main.chunk.js"></script><script src="./login_files/main.ca72aaa2c2c2f250a8fa.hot-update.js"></script>
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./login_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div><iframe style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; border: none; z-index: 2147483647;" src="./login_files/saved_resource(1).html"></iframe></body></html>

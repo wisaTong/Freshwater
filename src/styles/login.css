@@ -1,47 +1,39 @@
 :root {
   --primary-font: "Quicksand";
 }
-.container {
-  width: 100%;
+
+.top-level {
   height: 100%;
+  background: url('../images/dock.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.leftpane {
-  width: 33%;
-  height: 100%;
-  float: left;
-  background-color: rgb(223, 215, 215);
-  border-collapse: collapse;
+.column {
+  width: calc(100% / 3);
+  display: inline-block;
 }
 
-.middlepane {
-  width: 33%;
-  height: 100%;
-  float: left;
-  background-color: rgb(223, 215, 215);
-  border-collapse: collapse;
-}
-
-.rightpane {
-  width: 34%;
-  height: 100%;
-  position: relative;
-  float: right;
-  background-color: rgb(223, 215, 215);
-  border-collapse: collapse;
-}
-
-h1 {
-  padding-top: 10%;
+p {
+  font-size: 20px;
+  margin: 0;
   font-family: var(--primary-font);
-  font-size: 80px;
+  color: var(--secondary-text-color);
 }
 
-h3 {
-  font-family: var(--primary-font);
-  font-size: 24px;
-  margin-top: -50px;
-  margin-bottom: 30px;
+p.manatee {
+  font-size: 90px;
+  font-weight: 500;
+  margin-top: 30%;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+p.desc {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 0;
+  text-align: left;
 }
 
 .send-name {
@@ -95,10 +87,14 @@ img {
 .send-name input {
   width: 100%;
   padding: 15px 10px;
-  margin: 0;
+  margin-top: 20px;
+
   border-style: none;
   background: #ffffff;
+  
   font-weight: 200;
+  color: grey;
+  
   border: solid #ffffff;
   border-radius: 7px;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -110,20 +106,6 @@ img {
   font-family: var(--primary-font);
 }
 
-p {
-  color: grey;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-family: var(--primary-font);
-}
-
-.empty-space {
-  margin: 5px 0;
-}
-
-button {
-  width: 95%;
-  height: 5%;
-  max-width: 250px;
-  margin-bottom: 5px;
+.send-name input:focus {
+  outline: none !important;
 }

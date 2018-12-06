@@ -1,59 +1,133 @@
 import React from "react";
-
-import "../styles/app.css";
+import { Redirect } from "react-router-dom";
 
 import MessageList from "./MessageList";
 import SendMessage from "./SendMessage";
 
-import { Message } from "./Message";
-import * as ws from "../socketClient"
+import Message from "./Message";
+import ChatList from "./ChatList";
 
-const TEMP = [
-  new Message(
-    "me",
-    "public",
-    "HelloWorld Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ratione fugit. Atque commodi autem velit sit est dolores aut dignissimos, tene",
-    "15:30"
-  ),
-  new Message("me", "public", "HelloWorld", "15:30"),
-  new Message(
-    "Mr.Lorem",
-    "public",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, ratione fugit. Atque commodi autem velit sit est dolores aut dignissimos, tenetur, impedit quaerat quo odio aliquam optio reiciendis, in id?",
-    "15:30"
-  ),
-  new Message("Classic man", "public", "asdsadads", "15.35")
-];
-let sock = ws.connect("ws://35.240.212.170/ws");
+import * as ws from "../socketClient";
+import "../styles/app.css";
+
+
+let sock;
+
 export default class PublicRoom extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "Public",
-      messages: TEMP
+      redirect: false,
+      next: "",
+      user: "",
+      chatName: "",
+      messages: []
     };
-    sock.onmessage = (msg) => {
-      let some = JSON.parse(msg.data)
-      var time = new Date();
+    this.redirection = this.redirection.bind(this);
+  }
+
+  componentDidMount() {
+    this.socketSetup();
+  }
+
+  componentWillMount() {
+    const { username } = this.props.location.state;
+    this.setState({
+      user: username,
+      chatName: this.props.location.pathname.substring(1)
+    });
+  }
+
+  socketSetup() {
+    sock = ws.connect(`ws://35.240.212.170/ws/${this.props.location.pathname.substring(1)}`);
+
+    sock.onmessage = msg => {
+      let some = JSON.parse(msg.data);
+      var time = new Date(some.time);
+
       console.log(`[info] receive message: ${msg.data}`);
-      TEMP.push(new Message(some.sender, some.destination ,some.message, time.getHours()+":"+time.getMinutes()));
-      this.setState({messages: TEMP});
+      this.state.messages.push(
+        new Message(
+          some.sender,
+          some.destination,
+          some.message,
+          time.getHours() + ":" + time.getMinutes()
+        )
+      );
+
+      this.setState({ messages: this.state.messages });
     };
+
     this.sendMessageToSocket = this.sendMessageToSocket.bind(this);
   }
 
   sendMessageToSocket(message) {
-    let msg = JSON.stringify(new Message("me", this.state.name, message, "9000"));
+    var date = Math.floor(Date.now());
+    let msg = JSON.stringify(
+      new Message(this.state.user, this.state.chatName, message, date)
+    );
     sock.send(msg);
+  }
+
+  redirection(nextPage) {
+    this.setState({ next: nextPage, redirect: true })
+  }
+
+  render() {
+    
+    if (this.state.redirect) {
+      return <Redirect push to={{
+        pathname: `/dummy`,
+        state: { username: this.state.user, next: this.state.next }
+      }} />
+    }
+
+    return (
+      <div>
+        <ChatList
+          redirection={this.redirection}
+        />
+        <div className="chat-box">
+          <div className="title-font"> {this.state.chatName} </div>
+          <MessageList
+            messages={this.state.messages}
+            username={this.state.user}
+          />
+          <SendMessage
+            sendMessage={message => this.sendMessageToSocket(message)}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export class Dummy extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      next: "",
+      username: ""
+    }
+  }
+
+  componentWillMount() {
+    const { username } = this.props.location.state;
+    const { next } = this.props.location.state;
+
+    this.setState({
+      next: next,
+      username: username
+    })
   }
 
   render() {
     return (
-      <div className="chat-box">
-        <div className="title-font"> {this.state.name} </div>
-        <MessageList messages={this.state.messages} />
-        <SendMessage sendMessage={(message) => this.sendMessageToSocket(message)}/>
-      </div>
+      <Redirect push to={{
+        pathname: `/${this.state.next}`,
+        state: { username: this.state.username, redirect: false }
+      }} />
     );
   }
+
 }
