@@ -32,6 +32,7 @@ export default class SendMessage extends React.Component {
           placeholder="Write your message here"
           value={this.state.message}
           type="message"
+          maxLength="255"
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
         />

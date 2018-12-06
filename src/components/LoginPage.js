@@ -24,7 +24,7 @@ export default class LoginPage extends React.Component {
   handleKeyPress = event => {
     if (event.key === "Enter" && this.state.username.trim() !== "") {
       this.setState({redirect: true});
-      return console.log(`Your username is : ${this.state.username}`);
+      return null;
     }
   };
 
@@ -33,7 +33,7 @@ export default class LoginPage extends React.Component {
     const redirect = this.state.redirect
 
     if (redirect) return <Redirect push to={{
-      pathname: "/public-room",
+      pathname: "/lounge",
       state: { username: this.state.username }
     }} />
 
